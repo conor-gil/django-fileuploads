@@ -1,0 +1,14 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1>File List</h1>
+    <div class="file_uploads">
+        {% for file_upload in file_uploads %}
+            <div class="file_upload">
+                <h2><a href="{% url 'file_uploads:detail' slug=file_upload.slug %}"> {{ file_upload.description }} </a></h2>
+                <p> {{ file_upload.file.name }} </p>
+                <p> {{ file_upload.date }} </p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

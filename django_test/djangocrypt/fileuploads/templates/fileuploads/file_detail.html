@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="file-detail">
+        <div class="file_upload">
+            <img src="{{file_upload.image.url}}"/>
+            {% if user.is_authenticated %}
+                <h2><a href="{{file_upload.file.url}}"> {{ file_upload.file.name }} </a></h2>
+            {% else %}
+                <h2>{{ file_upload.file.name }}</h2>
+            {% endif %}
+            <h2> {{ file_upload.description }} </h2>
+            <p> {{ file_upload.date }} </p>
+        </div>
+    </div>
+{% endblock %}
